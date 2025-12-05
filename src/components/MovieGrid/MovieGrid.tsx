@@ -8,7 +8,6 @@ interface Props {
 }
 
 export default function MovieGrid({ movies, onSelect }: Props) {
-  // Галерея рендериться лише якщо є фільми
   if (movies.length === 0) return null;
 
   return (
@@ -16,7 +15,7 @@ export default function MovieGrid({ movies, onSelect }: Props) {
       {movies.map((movie) => {
         const imageUrl = movie.poster_path
           ? makeImageUrl(movie.poster_path)
-          : null; // якщо постера немає, не рендеримо <img>
+          : null; 
 
         return (
           <li key={movie.id}>
