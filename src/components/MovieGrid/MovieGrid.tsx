@@ -36,4 +36,3 @@ export default function MovieGrid({ movies, onSelect }: Props) {
     </ul>
   );
 }
-
