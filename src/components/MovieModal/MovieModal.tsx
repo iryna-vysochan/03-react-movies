@@ -31,6 +31,10 @@ export default function MovieModal({ movie, onClose }: Props) {
     if (e.target === e.currentTarget) onClose();
   };
 
+  const backdropUrl = movie.backdrop_path
+    ? makeImageUrl(movie.backdrop_path, "original")
+    : null;
+
   return createPortal(
     <div className={styles.backdrop} role="dialog" aria-modal="true" onClick={handleBackdrop}>
       <div className={styles.modal}>
@@ -38,11 +42,13 @@ export default function MovieModal({ movie, onClose }: Props) {
           &times;
         </button>
 
-        <img
-          src={makeImageUrl(movie.backdrop_path, "original")}
-          alt={movie.title}
-          className={styles.image}
-        />
+        {backdropUrl && (
+          <img
+            src={backdropUrl}
+            alt={movie.title}
+            className={styles.image}
+          />
+        )}
 
         <div className={styles.content}>
           <h2>{movie.title}</h2>
@@ -55,5 +61,4 @@ export default function MovieModal({ movie, onClose }: Props) {
     modalRoot
   );
 }
-
 
