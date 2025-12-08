@@ -4,14 +4,14 @@ import type { Movie } from "../../types/movie";
 import { makeImageUrl } from "../../services/imageUrl";
 import styles from "./MovieModal.module.css";
 
-interface Props {
+interface MovieModalProps {
   movie: Movie;
   onClose: () => void;
 }
 
 const modalRoot = document.getElementById("modal-root")!;
 
-export default function MovieModal({ movie, onClose }: Props) {
+export default function MovieModal({ movie, onClose }: MovieModalProps) {
   useEffect(() => {
     document.body.style.overflow = "hidden";
 
